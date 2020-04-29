@@ -1,5 +1,12 @@
 #! /bin/bash
 
+# Checking if sudo or root
+if (($(id -u) != 0))
+then
+    echo This script needs to run with sudo
+    exit
+fi
+
 # getting the first part of java compiler version
 javaVersion=$(javac -version 2>&1 | awk -F. '{print $1}')
 
@@ -14,6 +21,7 @@ case $javaVersion in
         echo Java 11 is running now !
         echo
         java -version
+        javac -version
         exit
     ;;
     
@@ -24,6 +32,7 @@ case $javaVersion in
         echo Java 8 is running now !
         echo
         java -version
+        javac -version
         exit
     ;;
     
