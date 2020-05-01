@@ -19,10 +19,6 @@ case $javaVersion in
         update-java-alternatives -s java-1.11.0-openjdk-amd64
         echo
         echo Java 11 is running now !
-        echo
-        java -version
-        javac -version
-        exit
     ;;
     
     # if java 11
@@ -30,10 +26,11 @@ case $javaVersion in
         update-java-alternatives -s java-1.8.0-openjdk-amd64
         echo
         echo Java 8 is running now !
-        echo
-        java -version
-        javac -version
-        exit
     ;;
     
 esac
+
+echo
+java -version
+javac -version
+exit
