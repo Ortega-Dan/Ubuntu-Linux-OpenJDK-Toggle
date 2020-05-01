@@ -31,6 +31,6 @@ case $javaVersion in
 esac
 
 echo
-java -version
 javac -version
+java -version
 exit
