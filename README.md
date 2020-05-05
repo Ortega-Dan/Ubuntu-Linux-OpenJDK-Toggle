@@ -11,7 +11,7 @@ Requires sudo, because update-java-alternatives command requires sudo. (Both scr
 
 
 To install do:\
-git clone https://github.com/Ortega-Dan/Ubuntu-Linux-OpenJDK-Toggle.git\
+git clone https://github.com/Ortega-Dan/Ubuntu-Linux-OpenJDK-Toggle.git \
 cd Ubuntu-Linux-OpenJDK-Toggle\
 sudo bash deploy.sh
 
