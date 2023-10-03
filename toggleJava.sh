@@ -1,10 +1,12 @@
 #! /bin/bash
 
 # Checking if sudo or root
-if (($(id -u) != 0))
-then
-    echo This script needs to run with sudo
-    exit
+sudo -v
+if [ $? -eq 0 ]; then
+  echo "sudo confirmed."
+else
+  echo "You need to provide sudo access for proper routing configuration in /etc/hosts"
+  exit
 fi
 
 # getting the first part of java compiler version
@@ -14,18 +16,18 @@ javaVersion=$(javac -version 2>&1 | awk -F. '{print $1}')
 
 case $javaVersion in
     
-    # if java 8
-    'javac 1')
-        update-java-alternatives -s java-1.11.0-openjdk-amd64
-        echo
-        echo Java 11 is running now !
-    ;;
-    
     # if java 11
     'javac 11')
-        update-java-alternatives -s java-1.8.0-openjdk-amd64
+        sudo update-java-alternatives -s java-1.17.0-openjdk-amd64
         echo
-        echo Java 8 is running now !
+        echo Java 17 is running now !
+    ;;
+    
+    # if java 17
+    'javac 17')
+        sudo update-java-alternatives -s java-1.11.0-openjdk-amd64
+        echo
+        echo Java 11 is running now !
     ;;
     
 esac
